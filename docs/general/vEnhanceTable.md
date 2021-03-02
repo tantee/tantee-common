@@ -31,4 +31,3 @@
 ```typescript
 rowClick(row: unknown): void
 ```
-

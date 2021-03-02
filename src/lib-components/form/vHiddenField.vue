@@ -1,5 +1,5 @@
 <template>
-  <input type="hidden" v-bind:value="value" v-bind="$attrs" v-on="$listeners">
+  <input type="hidden" v-bind:value="value" v-bind="$attrs" v-on="$listeners"/>
 </template>
 
 <script>

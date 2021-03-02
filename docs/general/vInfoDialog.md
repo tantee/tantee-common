@@ -52,4 +52,3 @@ closeDialog(): void
 ```typescript
 showDialog(): void
 ```
-

@@ -2,7 +2,7 @@
   <v-btn @click="openDialog" v-if="!isFileLoaded">
     <slot>Upload</slot>
     <form ref="fileForm">
-      <input ref="fileInput" type="file" v-on:change="fileSelected" style="display:none" :accept="accept">
+      <input ref="fileInput" type="file" v-on:change="fileSelected" style="display:none" :accept="accept"/>
     </form>
   </v-btn>
   <v-chip v-model="isChipOpen" close @click:close="reset" v-else>{{ currentFileName }}</v-chip>

@@ -64,4 +64,3 @@ saveImage(): void
 ```typescript
 rotate(angle: unknown): void
 ```
-

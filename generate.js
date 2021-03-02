@@ -6,6 +6,8 @@ const fs = require('fs');
 const path = require('path');
 const os = require("os");
 
+const vuedoc = require('@vuedoc/md')
+
 const files = {};
 
 const base = './src/lib-components'
@@ -42,7 +44,21 @@ Object.keys(files).forEach((fileName)=>{
       fileName.replace(/^\/(.+\/)*(.+)\.\w+$/, '$2')
     )
   )
+
   fs.appendFileSync(outputFilename,'export { default as '+componentName+' } from \''+fileName.replace(path.resolve(__dirname, base),'.')+'\';'+os.EOL)
+  
+  
+  const options = {
+    filenames: [fileName]
+  }
+  const docOutputFilename = fileName.replace(path.resolve(__dirname, base),'docs').replace('.vue','.md')
+  vuedoc.md(options).then((document) => {
+    if (fs.existsSync(docOutputFilename)) fs.unlinkSync(docOutputFilename)
+    fs.mkdirSync(path.dirname(docOutputFilename),{recursive: true})
+    fs.writeFileSync(docOutputFilename,document)
+  }).catch((err) => {
+    console.error(err)
+  })
   console.log('add '+componentName);
 })
 

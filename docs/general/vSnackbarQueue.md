@@ -43,4 +43,3 @@ renewAlert(): void
 ```typescript
 registerLocation(): void
 ```
-

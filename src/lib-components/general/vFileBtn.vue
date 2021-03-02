@@ -2,7 +2,7 @@
   <v-btn v-bind="$attrs" v-on="$listeners" @click="openDialog">
     <slot>Import</slot>
     <form ref="fileForm">
-      <input ref="fileInput" type="file" v-on:change="fileSelected" style="display:none" :multiple="multiple" :accept="accept">
+      <input ref="fileInput" type="file" v-on:change="fileSelected" style="display:none" :multiple="multiple" :accept="accept"/>
     </form>
   </v-btn>
 </template>

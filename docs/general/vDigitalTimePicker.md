@@ -37,4 +37,3 @@ emitValue(): void
 ```typescript
 setTime(): void
 ```
-

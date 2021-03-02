@@ -1,4 +1,10 @@
 /* eslint-disable import/prefer-default-export */
+export { default as VModelIterator } from './data/vModelIterator.vue';
+export { default as VModelTable } from './data/vModelTable.vue';
+export { default as VConfirmDialog } from './dialog/vConfirmDialog.vue';
+export { default as VLoadingDialog } from './dialog/vLoadingDialog.vue';
+export { default as VNotifyDialog } from './dialog/vNotifyDialog.vue';
+export { default as VUserCheckDialog } from './dialog/vUserCheckDialog.vue';
 export { default as VActionDialog } from './form/vActionDialog.vue';
 export { default as VCodeEditor } from './form/vCodeEditor.vue';
 export { default as VDateField } from './form/vDateField.vue';
@@ -30,6 +36,3 @@ export { default as VInfoDialog } from './general/vInfoDialog.vue';
 export { default as VMenuItem } from './general/vMenuItem.vue';
 export { default as VSnackbarQueue } from './general/vSnackbarQueue.vue';
 export { default as VTabsGroup } from './general/vTabsGroup.vue';
-
-
-export { default as VModelTable } from './data/vModelTable.vue';

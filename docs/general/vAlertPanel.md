@@ -31,4 +31,3 @@ moment(DateTime: unknown): void
 ```typescript
 registerLocation(): void
 ```
-

@@ -6,7 +6,7 @@
           <v-btn @click="startMediaCapture" large>
             <v-icon>photo_camera</v-icon> Take Photo
             <form ref="fileForm">
-              <input ref="fileInput" type="file" accept="image/*" capture="camera" v-on:change="captureImageFile" style="display:none">
+              <input ref="fileInput" type="file" accept="image/*" capture="camera" v-on:change="captureImageFile" style="display:none"/>
             </form>
           </v-btn>
         </template>
@@ -16,7 +16,7 @@
         </template>
       </template>
       <template v-else>
-        <v-img :src="imageSrc" max-width="1024" contain></v-img><br>
+        <v-img :src="imageSrc" max-width="1024" contain></v-img><br />
       </template>
     </v-card-text>
     <v-card-actions>

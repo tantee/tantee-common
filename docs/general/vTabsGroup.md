@@ -18,4 +18,3 @@
 | Name         | Type  | Description | Initial value |
 | ------------ | ----- | ----------- | ------------- |
 | `currentTab` | `any` |             | `undefined`   |
-
