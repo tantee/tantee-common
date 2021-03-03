@@ -9,8 +9,8 @@
   "files": [
     "dist/*",
     "src/**/*.vue",
-    "framework/**",
-    "mixins/**"
+    "src/framework/**",
+    "src/mixins/**"
   ],
   "sideEffects": false,
   "scripts": {
