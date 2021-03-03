@@ -1,4 +1,4 @@
-<template lang="html">
+<template>
   <v-dialog value="true" max-width="600" @keydown.esc="choose(false)" persistent>
     <v-card tile>
       <v-toolbar flat color="primary">

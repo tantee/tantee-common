@@ -1,4 +1,4 @@
-<template lang="html">
+<template>
   <v-dialog v-model="dialog" hide-overlay persistent width="300">
     <v-card color="primary" dark>
       <v-card-text class="pa-3">
