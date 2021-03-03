@@ -1,4 +1,4 @@
-<template lang="html">
+<template>
   <v-card :flat="flat">
     <v-toolbar v-if="!hideToolbar" flat>
       <v-toolbar-title>
