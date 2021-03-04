@@ -6,7 +6,7 @@
 
 <script>
 import { isUndefined } from 'lodash'
-import * as helper from '@/lib/helperDateTime'
+import helper from '#/helperDateTime'
 
 export default {
   data: ()=>({

@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import * as helperDateTime from '@/lib/helperDateTime'
+import helperDateTime from '#/helperDateTime'
 import { isNil,isBoolean,castArray,isString } from 'lodash'
 
 export default {

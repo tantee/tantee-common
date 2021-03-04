@@ -71,7 +71,7 @@
 </template>
 
 <script>
-import apiModel from '@/mixins/apiModel'
+import apiModel from '#/mixins/apiModel'
 import {isUndefined,startCase,cloneDeep,indexOf,without} from 'lodash'
 
 export default {

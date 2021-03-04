@@ -30,6 +30,10 @@ const baseConfig = {
           {
             find: '@',
             replacement: `${path.resolve(projectRoot, 'src')}`,
+          },
+          {
+            find: '#',
+            replacement: `${path.resolve(projectRoot, 'lib')}`,
           }
         ],
         customResolver: resolve({
@@ -41,11 +45,11 @@ const baseConfig = {
       'process.env.NODE_ENV': JSON.stringify('production')
     },
     replaceLocalImport: {
-      'import api from \'tantee-common\'' : 'import * as api from \'@/lib/api\'',
-      'import apiCRUD from \'tantee-common/mixins/apiCRUD\'' : 'import apiCRUD from \'@/mixins/apiCRUD\'',
-      'import apiModel from \'tantee-common/mixins/apiModel\'' : 'import apiModel from \'@/mixins/apiModel\'',
-      'import apiItem from \'tantee-common/mixins/apiItem\'' : 'import apiItem from \'@/mixins/apiItem\'',
-      'import subForm from \'tantee-common/mixins/subForm\'' : 'import apiItem from \'@/mixins/subForm\'',
+      'import api from \'tantee-common\'' : 'import * as api from \'#/api\'',
+      'import apiCRUD from \'tantee-common/mixins/apiCRUD\'' : 'import apiCRUD from \'#/mixins/apiCRUD\'',
+      'import apiModel from \'tantee-common/mixins/apiModel\'' : 'import apiModel from \'#/mixins/apiModel\'',
+      'import apiItem from \'tantee-common/mixins/apiItem\'' : 'import apiItem from \'#/mixins/apiItem\'',
+      'import subForm from \'tantee-common/mixins/subForm\'' : 'import apiItem from \'#/mixins/subForm\'',
       delimiters: ['', '']
     },
     vue: {
@@ -83,11 +87,11 @@ const external = [
   'papaparse',
   'fuse.js',
   'file-saver',
-  '@/store',
   'cropperjs/dist/cropper.css',
   'exif-rotate-js/lib',
   'signature_pad',
   /codemirror.*/,
+  '@/store',
   /@\/modules\/.*/
 ];
 

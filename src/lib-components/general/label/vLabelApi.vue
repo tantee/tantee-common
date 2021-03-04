@@ -7,7 +7,7 @@
 <script>
 import { isUndefined } from 'lodash'
 import { LocalStorage } from 'ttl-localstorage'
-import * as api from '@/lib/api'
+import api from '#/api'
 
 export default {
   data: ()=>({

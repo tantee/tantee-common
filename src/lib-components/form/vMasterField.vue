@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import * as api from '@/lib/api'
+import api from '#/api'
 import { isUndefined,isEqual,isArray,includes,filter,debounce } from 'lodash'
 import Fuse from 'fuse.js'
 

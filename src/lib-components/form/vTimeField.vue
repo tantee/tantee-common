@@ -29,7 +29,7 @@
 
 <script>
 import moment from 'moment'
-import * as helperDateTime from '@/lib/helperDateTime'
+import helperDateTime from '#/helperDateTime'
 
 export default {
   data: ()=>({

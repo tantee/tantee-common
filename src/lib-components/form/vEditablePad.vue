@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import * as api from '@/lib/api'
+import api from '#/api'
 import { isUndefined,isEqual,cloneDeep } from 'lodash'
 
 export default {
