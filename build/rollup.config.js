@@ -90,6 +90,7 @@ const external = [
   'cropperjs/dist/cropper.css',
   'exif-rotate-js/lib',
   'signature_pad',
+  '@zxing/library',
   /codemirror.*/,
   '@/store',
   /@\/modules\/.*/

@@ -54,9 +54,13 @@ export default {
       default: 300
     }
   },
+  data: ()=>({
+    value: false
+  }),
   methods: {
     choose (value) {
       this.$emit('result', value)
+      this.value = value
       this.$destroy()
     },
     change (res) {
