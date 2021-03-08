@@ -1,6 +1,7 @@
 /* eslint-disable import/prefer-default-export */
 export { default as VModelIterator } from './data/vModelIterator.vue';
 export { default as VModelTable } from './data/vModelTable.vue';
+export { default as VBarcodeDialog } from './dialog/vBarcodeDialog.vue';
 export { default as VConfirmDialog } from './dialog/vConfirmDialog.vue';
 export { default as VLoadingDialog } from './dialog/vLoadingDialog.vue';
 export { default as VNotifyDialog } from './dialog/vNotifyDialog.vue';
@@ -28,6 +29,7 @@ export { default as VLabelMaster } from './general/label/vLabelMaster.vue';
 export { default as VLabelUser } from './general/label/vLabelUser.vue';
 export { default as VLabelValue } from './general/label/vLabelValue.vue';
 export { default as VAlertPanel } from './general/vAlertPanel.vue';
+export { default as VBarcodeReader } from './general/vBarcodeReader.vue';
 export { default as VDigitalTimePicker } from './general/vDigitalTimePicker.vue';
 export { default as VEnhanceTable } from './general/vEnhanceTable.vue';
 export { default as VFileBtn } from './general/vFileBtn.vue';
@@ -36,3 +38,4 @@ export { default as VInfoDialog } from './general/vInfoDialog.vue';
 export { default as VMenuItem } from './general/vMenuItem.vue';
 export { default as VSnackbarQueue } from './general/vSnackbarQueue.vue';
 export { default as VTabsGroup } from './general/vTabsGroup.vue';
+export { default as VTextBarcode } from './general/vTextBarcode.vue';
