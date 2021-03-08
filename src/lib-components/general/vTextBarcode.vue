@@ -32,6 +32,7 @@ export default {
         if (decode) {
           this.currentValue = result
           this.$emit('input',result)
+          this.$emit('decode',result)
         }
       })
     }
