@@ -90,10 +90,12 @@ const external = [
   'cropperjs/dist/cropper.css',
   'exif-rotate-js/lib',
   'signature_pad',
+  'vue-async-computed',
   '@zxing/library',
   /codemirror.*/,
   '@/store',
-  /@\/modules\/.*/
+  /@\/modules\/.*/,
+  'tantee-common/lib/plugins/dialog'
 ];
 
 // UMD/IIFE shared settings: output.globals
