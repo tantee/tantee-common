@@ -1,12 +1,14 @@
 <script>
 import Vue from 'vue';
 // Uncomment import and local "components" registration if library is not registered globally.
-// import { TanteeCommonSample } from '@/entry.esm';
+ //import { TanteeCommonSample } from '@/entry.esm';
+import vTextBarcode from '../src/lib-components/general/vTextBarcode.vue';
 
 export default Vue.extend({
+  components: { vTextBarcode },
   name: 'ServeDev',
   data: ()=>({
-    test: undefined
+    test: 'adddd'
   })
 });
 </script>

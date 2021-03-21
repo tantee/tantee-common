@@ -22,8 +22,11 @@ export default {
     },
   },
   watch: {
-    value: function(newValue) {
-      this.currentValue = newValue
+    value: {
+      handler(newValue) {
+        this.currentValue = newValue
+      },
+      immediate: true
     },
   },
   methods: {
@@ -36,7 +39,7 @@ export default {
         }
       })
     }
-  }
+  },
 }
 </script>
 
