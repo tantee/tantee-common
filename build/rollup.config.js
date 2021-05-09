@@ -91,7 +91,6 @@ const external = [
   'exif-rotate-js/lib',
   'signature_pad',
   'vue-async-computed',
-  'vue-disable-autocomplete',
   '@zxing/library',
   /codemirror.*/,
   '@/store',

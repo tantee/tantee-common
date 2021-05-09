@@ -2,7 +2,6 @@
 // Import vue components
 import * as components from '@/lib-components/index'
 import AsyncComputed from 'vue-async-computed'
-import DisableAutocomplete from 'vue-disable-autocomplete'
 import tanteeDialog from 'tantee-common/lib/plugins/dialog'
 
 // install function executed by Vue.use()
@@ -11,7 +10,6 @@ const install = function installTanteeCommon(Vue) {
     Vue.component(componentName, component);
   });
   Vue.use(AsyncComputed)
-  Vue.use(DisableAutocomplete)
   Vue.use(tanteeDialog)
 };
 
