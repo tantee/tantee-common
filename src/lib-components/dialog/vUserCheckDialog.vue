@@ -7,7 +7,7 @@
       </v-toolbar>
       <v-form @submit.prevent="login">
       <v-card-text>
-          <v-text-field v-model="loginData.username" prepend-icon="person" name="login" label="Login" type="text" ref="username" :disabled="verifyCurrentUser"></v-text-field>
+          <v-text-field v-model="loginData.username" prepend-icon="person" name="login" label="Login" type="text" ref="username" :disabled="verifyCurrentUser" autocomplete="off"></v-text-field>
           <v-text-field v-model="loginData.password" prepend-icon="lock" name="password" label="Password" type="password" ref="password"></v-text-field>
       </v-card-text>
       <v-card-actions>
