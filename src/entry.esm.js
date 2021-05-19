@@ -3,6 +3,7 @@
 import * as components from '@/lib-components/index'
 import AsyncComputed from 'vue-async-computed'
 import tanteeDialog from 'tantee-common/lib/plugins/dialog'
+import tanteeDatetime from 'tantee-common/lib/plugins/datetime'
 
 // install function executed by Vue.use()
 const install = function installTanteeCommon(Vue) {
@@ -11,6 +12,7 @@ const install = function installTanteeCommon(Vue) {
   });
   Vue.use(AsyncComputed)
   Vue.use(tanteeDialog)
+  Vue.use(tanteeDatetime)
 };
 
 // Create module definition for Vue.use()
