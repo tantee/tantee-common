@@ -1,5 +1,5 @@
 <template>
-  <v-card>
+  <v-card :flat="flat">
     <v-card-title primary-title>
       {{ title }}
       <v-spacer></v-spacer>
@@ -54,7 +54,11 @@ export default {
     template: {
       type: String,
       default: undefined
-    }
+    },
+    flat: {
+      type: Boolean,
+      default: false
+    },
   },
   methods: {
     saveData() {
