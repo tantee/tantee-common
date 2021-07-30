@@ -94,6 +94,7 @@ const external = [
   '@zxing/library',
   /codemirror.*/,
   '@/store',
+  '@/router',
   /@\/modules\/.*/,
   'tantee-common/lib/plugins/dialog'
 ];
