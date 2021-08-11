@@ -1,6 +1,6 @@
 <template>
   <v-card :flat="flat">
-    <v-tabs v-model="currentTab">
+    <v-tabs v-model="currentTab" show-arrows>
       <slot name="tabs"></slot>
     </v-tabs>
     <v-card>
