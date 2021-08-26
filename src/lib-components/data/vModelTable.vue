@@ -58,10 +58,10 @@
         <template v-for="(_, slot) of $scopedSlots" v-slot:[slot]="scope">
           <slot :name="slot" :actions="actions" v-bind="scope" v-if="!(slot in disableAutoSlots)"></slot>
         </template>
-        <template v-for="(_, slot) of computedDateTimeHeaders" v-slot:['item.'+slot.value]="props">
+        <template v-for="slot in computedDateTimeHeaders" v-slot:['item.'+slot.value]="props">
           <v-label-datetime :date-time="props.item[slot.value]" short-date-time></v-label-datetime>
         </template>
-        <template v-for="(_, slot) of computedDateHeaders" v-slot:['item.'+slot.value]="props">
+        <template v-for="slot in computedDateHeaders" v-slot:['item.'+slot.value]="props">
           <v-label-datetime :date-time="props.item[slot.value]" short-date></v-label-datetime>
         </template>
         <template v-slot:body.append="scope">
@@ -314,6 +314,7 @@ export default {
     }
   },
   mounted() {
+    console.log(this.$scopedSlots)
     this.$set(this.pagination,'perPage',Number(this.defaultItemsPerPage))
     this.selected = this.value
     this.loadData()
