@@ -58,15 +58,11 @@
         <template v-for="(_, slot) of $scopedSlots" v-slot:[slot]="scope">
           <slot :name="slot" :actions="actions" v-bind="scope" v-if="!(slot in disableAutoSlots)"></slot>
         </template>
-        <template v-for="slot in computedDateTimeHeaders">
-          <template v-slot:['item.'+slot]="props">
-            <v-label-datetime :date-time="props.item[slot]" short-date-time></v-label-datetime>
-          </template>
+        <template v-for="dateTimeHeader in computedDateTimeHeaders" v-slot:[headerToSlotName(dateTimeHeader)]="props">
+          <v-label-datetime :date-time="props.item[dateTimeHeader]" short-date-time></v-label-datetime>
         </template>
-        <template v-for="slot in computedDateHeaders">
-          <template v-slot:['item.'+slot]="props">
-            <v-label-datetime :date-time="props.item[slot]" short-date></v-label-datetime>
-          </template>
+        <template v-for="dateHeader in computedDateHeaders" v-slot:[headerToSlotName(dateHeader)]="props">
+          <v-label-datetime :date-time="props.item[dateHeader]" short-date></v-label-datetime>
         </template>
         <template v-slot:body.append="scope">
           <slot name="body.append" v-bind="scope" :selectedItems="selected" :allitems="apiData[modelName]"></slot>
@@ -262,6 +258,9 @@ export default {
     }
   },
   methods: {
+    headerToSlotName(header) {
+      return 'item.'+header
+    },
     newData(object) {
       this.$refs.modelFormDialog.isCreating = true
       this.$nextTick(()=>{
@@ -318,7 +317,6 @@ export default {
     }
   },
   mounted() {
-    console.log(this.$scopedSlots)
     this.$set(this.pagination,'perPage',Number(this.defaultItemsPerPage))
     this.selected = this.value
     this.loadData()
