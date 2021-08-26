@@ -1,6 +1,6 @@
 {
   "name": "tantee-common",
-  "version": "1.0.32",
+  "version": "1.0.33",
   "description": "Common Vue/Vuetify library for TaNteE projects",
   "main": "dist/tantee-common.ssr.js",
   "browser": "dist/tantee-common.esm.js",
