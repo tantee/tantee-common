@@ -58,11 +58,15 @@
         <template v-for="(_, slot) of $scopedSlots" v-slot:[slot]="scope">
           <slot :name="slot" :actions="actions" v-bind="scope" v-if="!(slot in disableAutoSlots)"></slot>
         </template>
-        <template v-for="slot in computedDateTimeHeaders" v-slot:['item.'+slot.value]="props">
-          <v-label-datetime :date-time="props.item[slot.value]" short-date-time></v-label-datetime>
+        <template v-for="slot in computedDateTimeHeaders">
+          <template v-slot:['item.'+slot]="props">
+            <v-label-datetime :date-time="props.item[slot]" short-date-time></v-label-datetime>
+          </template>
         </template>
-        <template v-for="slot in computedDateHeaders" v-slot:['item.'+slot.value]="props">
-          <v-label-datetime :date-time="props.item[slot.value]" short-date></v-label-datetime>
+        <template v-for="slot in computedDateHeaders">
+          <template v-slot:['item.'+slot]="props">
+            <v-label-datetime :date-time="props.item[slot]" short-date></v-label-datetime>
+          </template>
         </template>
         <template v-slot:body.append="scope">
           <slot name="body.append" v-bind="scope" :selectedItems="selected" :allitems="apiData[modelName]"></slot>
@@ -78,7 +82,7 @@
 
 <script>
 import apiModel from '#/mixins/apiModel'
-import {isUndefined,startCase,cloneDeep,indexOf,without,filter,endsWith} from 'lodash'
+import {isUndefined,startCase,cloneDeep,indexOf,without,filter,endsWith,map} from 'lodash'
 
 export default {
   mixins: [apiModel],
@@ -231,16 +235,16 @@ export default {
     computedDateTimeHeaders() {
       let headers = cloneDeep(this.headers)
       headers = filter(headers, (o)=>{
-        return (endsWith(o.value,'_at') || endsWith(o.value,'DateTime')) && !('item.'+o.value in this.$scopedSlots)
+        return o.value && (endsWith(o.value,'_at') || endsWith(o.value,'DateTime')) && !('item.'+o.value in this.$scopedSlots)
       })
-      return headers
+      return map(headers,'value')
     },
     computedDateHeaders() {
       let headers = cloneDeep(this.headers)
       headers = filter(headers, (o)=>{
-        return endsWith(o.value,'Date') && !('item.'+o.value in this.$scopedSlots)
+        return o.value && endsWith(o.value,'Date') && !('item.'+o.value in this.$scopedSlots)
       })
-      return headers
+      return map(headers,'value')
     },
     computedInsertable() {
       if (this.insertable && !this.readonly) {
