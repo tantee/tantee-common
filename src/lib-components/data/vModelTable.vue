@@ -58,6 +58,12 @@
         <template v-for="(_, slot) of $scopedSlots" v-slot:[slot]="scope">
           <slot :name="slot" :actions="actions" v-bind="scope" v-if="!(slot in disableAutoSlots)"></slot>
         </template>
+        <template v-for="(_, slot) of computedDateTimeHeaders" v-slot:[slot.value]="props">
+          <v-label-datetime :date-time="props.item[slot.value]" short-date-time></v-label-datetime>
+        </template>
+        <template v-for="(_, slot) of computedDateHeaders" v-slot:[slot.value]="props">
+          <v-label-datetime :date-time="props.item[slot.value]" short-date></v-label-datetime>
+        </template>
         <template v-slot:body.append="scope">
           <slot name="body.append" v-bind="scope" :selectedItems="selected" :allitems="apiData[modelName]"></slot>
         </template>
@@ -72,7 +78,7 @@
 
 <script>
 import apiModel from '#/mixins/apiModel'
-import {isUndefined,startCase,cloneDeep,indexOf,without} from 'lodash'
+import {isUndefined,startCase,cloneDeep,indexOf,without,filter,endsWith} from 'lodash'
 
 export default {
   mixins: [apiModel],
@@ -82,7 +88,7 @@ export default {
     expanded: [],
     formDialog: false,
     currentObject : {},
-    disableAutoSlots : ['modelForm','body.append'],
+    disableAutoSlots : ['modelForm','toolBarItem','toolBarSearch','toolBarButton','body.append'],
   }),
   model: {
     prop: 'value',
@@ -220,6 +226,20 @@ export default {
     computedHeaders() {
       let headers = cloneDeep(this.headers)
       if (this.autoItemAction && !this.readonly) headers.push({text: 'Action',value: 'action',sortable: false})
+      return headers
+    },
+    computedDateTimeHeaders() {
+      let headers = cloneDeep(this.headers)
+      headers = filter(headers, (o)=>{
+        return (endsWith(o.value,'_at') || endsWith(o.value,'DateTime')) && !('item.'+o.value in this.$scopedSlots)
+      })
+      return headers
+    },
+    computedDateHeaders() {
+      let headers = cloneDeep(this.headers)
+      headers = filter(headers, (o)=>{
+        return endsWith(o.value,'Date') && !('item.'+o.value in this.$scopedSlots)
+      })
       return headers
     },
     computedInsertable() {
