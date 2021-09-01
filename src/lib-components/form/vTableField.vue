@@ -74,7 +74,7 @@
 
 <script>
 import * as papa from 'papaparse'
-import {isUndefined,isFunction,isArray,cloneDeep,assign,maxBy,findIndex} from 'lodash'
+import {isUndefined,isFunction,isArray,cloneDeep,assign,maxBy,findIndex,mapValues} from 'lodash'
 
 export default {
   data: ()=>({
@@ -247,7 +247,15 @@ export default {
           complete: (result) => {
             if (result.data.length>0) {
               result.data.forEach((data) => {
-                let tmpData = Object.assign(data,this.initialData)
+                let tmpData = mapValues(data,(row)=>{
+                                try {
+                                  return JSON.parse(row)
+                                } catch(e) {
+                                  void e
+                                  return row
+                                }
+                              })
+                tmpData = Object.assign(tmpData,this.initialData)
                 this.onCreateData(tmpData)
               })
             }
