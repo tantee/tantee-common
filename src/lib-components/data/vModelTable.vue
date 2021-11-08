@@ -231,14 +231,14 @@ export default {
     computedDateTimeHeaders() {
       let headers = cloneDeep(this.headers)
       headers = filter(headers, (o)=>{
-        return o.value && (endsWith(o.value,'_at') || endsWith(o.value,'DateTime')) && !('item.'+o.value in this.$scopedSlots)
+        return o.value && !o.value.includes('.') &&(endsWith(o.value,'_at') || endsWith(o.value,'DateTime')) && !('item.'+o.value in this.$scopedSlots)
       })
       return map(headers,'value')
     },
     computedDateHeaders() {
       let headers = cloneDeep(this.headers)
       headers = filter(headers, (o)=>{
-        return o.value && endsWith(o.value,'Date') && !('item.'+o.value in this.$scopedSlots)
+        return o.value && !o.value.includes('.') && endsWith(o.value,'Date') && !('item.'+o.value in this.$scopedSlots)
       })
       return map(headers,'value')
     },
