@@ -2,7 +2,7 @@
   <v-card>
     <v-card-text align="center">
       <template v-if="!isCaptured">
-        <template v-if="hasMediaCapture || !hasGetUserMedia">
+        <template v-if="hasMediaCapture || !hasGetUserMedia || fileOnly">
           <v-btn @click="startMediaCapture" large>
             <v-icon>photo_camera</v-icon> Take Photo
             <form ref="fileForm">
@@ -21,7 +21,7 @@
     </v-card-text>
     <v-card-actions>
       <v-spacer></v-spacer>
-      <v-btn color="primary" @click="startCamera" v-if="!isCameraStarted && !(hasMediaCapture || !hasGetUserMedia)">Start</v-btn>
+      <v-btn color="primary" @click="startCamera" v-if="!isCameraStarted && !(hasMediaCapture || !hasGetUserMedia || fileOnly)">Start</v-btn>
       <v-btn color="primary" @click="captureImage" v-if="isCameraStarted">Capture</v-btn>
       <v-btn color="primary" @click="reset">Reset</v-btn>
       <v-spacer></v-spacer>
@@ -49,6 +49,10 @@ export default {
     autoStart: {
       type: Boolean,
       default: false
+    },
+    fileOnly: {
+      type: Boolean,
+      default: false,
     }
   },
   methods: {
