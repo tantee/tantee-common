@@ -8,6 +8,7 @@ export { default as VNotifyDialog } from './dialog/vNotifyDialog.vue';
 export { default as VUserCheckDialog } from './dialog/vUserCheckDialog.vue';
 export { default as VActionDialog } from './form/vActionDialog.vue';
 export { default as VCodeEditor } from './form/vCodeEditor.vue';
+export { default as VColorSelect } from './form/vColorSelect.vue';
 export { default as VDateField } from './form/vDateField.vue';
 export { default as VDateTimeField } from './form/vDateTimeField.vue';
 export { default as VEditablePad } from './form/vEditablePad.vue';
