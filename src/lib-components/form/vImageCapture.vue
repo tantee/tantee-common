@@ -20,7 +20,7 @@
       </template>
     </v-card-text>
     <v-card-text v-if="showRequiredMessage" class="text-center">
-      <span color="red">{{ requiredMessage }}</span>
+      <span class="red--text">{{ requiredMessage }}</span>
     </v-card-text>
     <v-card-actions>
       <v-spacer></v-spacer>
