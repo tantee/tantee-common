@@ -19,6 +19,9 @@
         <v-img :src="imageSrc" max-width="1024" contain></v-img><br />
       </template>
     </v-card-text>
+    <v-card-text v-if="showRequiredMessage" class="text-center">
+      <span color="red">{{ requiredMessage }}</span>
+    </v-card-text>
     <v-card-actions>
       <v-spacer></v-spacer>
       <v-btn color="primary" @click="startCamera" v-if="!isCameraStarted && !(hasMediaCapture || !hasGetUserMedia || fileOnly)">Start</v-btn>
@@ -36,7 +39,8 @@ export default {
   data: ()=>({
     isCaptured: false,
     isCameraStarted: false,
-    imageData: null
+    imageData: null,
+    showRequiredMessage: false,
   }),
   props: {
     value: {
@@ -53,9 +57,26 @@ export default {
     fileOnly: {
       type: Boolean,
       default: false,
+    },
+    required: {
+      type: Boolean,
+      default: false
+    },
+    requiredMessage: {
+      type: String,
+      default: 'This field is required'
     }
   },
   methods: {
+    validate() {
+      if (!this.required || this.isCaptured) {
+        this.showRequiredMessage = false
+        return true
+      } else {
+        this.showRequiredMessage = true
+        return false
+      }
+    },
     captureImage: function() {
       this.$refs.captureCanvas.width = this.$refs.videoScreen.videoWidth
       this.$refs.captureCanvas.height = this.$refs.videoScreen.videoHeight
