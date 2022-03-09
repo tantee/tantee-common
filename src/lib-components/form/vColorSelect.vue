@@ -1,4 +1,4 @@
-<template lang="html">
+<template>
   <v-menu v-model="menu" top nudge-bottom="105" nudge-left="16" :close-on-content-click="false">
     <template v-slot:activator="{ on }">
       <div :style="swatchStyle" v-on="on" />
