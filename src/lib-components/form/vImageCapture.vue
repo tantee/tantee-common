@@ -3,7 +3,7 @@
     <v-card-text align="center">
       <template v-if="!isCaptured">
         <template v-if="hasMediaCapture || !hasGetUserMedia || fileOnly">
-          <v-btn @click="startMediaCapture" large>
+          <v-btn @click="startMediaCapture" large :disabled="disabled || readonly">
             <v-icon>photo_camera</v-icon> Take Photo
             <form ref="fileForm">
               <input ref="fileInput" type="file" accept="image/*" capture="camera" v-on:change="captureImageFile" style="display:none"/>
@@ -22,11 +22,11 @@
     <v-card-text v-if="showRequiredMessage" class="text-center">
       <span class="red--text">{{ requiredMessage }}</span>
     </v-card-text>
-    <v-card-actions>
+    <v-card-actions v-if="!readonly">
       <v-spacer></v-spacer>
-      <v-btn color="primary" @click="startCamera" v-if="!isCameraStarted && !(hasMediaCapture || !hasGetUserMedia || fileOnly)">Start</v-btn>
-      <v-btn color="primary" @click="captureImage" v-if="isCameraStarted">Capture</v-btn>
-      <v-btn color="primary" @click="reset">Reset</v-btn>
+      <v-btn color="primary" @click="startCamera" v-if="!isCameraStarted && !(hasMediaCapture || !hasGetUserMedia || fileOnly)" :disabled="disabled">Start</v-btn>
+      <v-btn color="primary" @click="captureImage" v-if="isCameraStarted" :disabled="disabled">Capture</v-btn>
+      <v-btn color="primary" @click="reset" :disabled="disabled">Reset</v-btn>
       <v-spacer></v-spacer>
     </v-card-actions>
   </v-card>
@@ -59,6 +59,14 @@ export default {
       default: false,
     },
     required: {
+      type: Boolean,
+      default: false
+    },
+    readonly: {
+      type: Boolean,
+      default: false
+    },
+    disabled: {
       type: Boolean,
       default: false
     },
@@ -156,8 +164,13 @@ export default {
   watch: {
     value: {
       handler(newValue) {
-        this.imageData = newValue
-        this.isCaptured = true
+        if (newValue) {
+          this.imageData = newValue
+          this.isCaptured = true
+        } else {
+          this.imageData = null
+          this.isCaptured = false
+        }
         this.stopCamera()
       },
       immediate: true
