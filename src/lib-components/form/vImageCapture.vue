@@ -4,7 +4,7 @@
       <template v-if="!isCaptured">
         <template v-if="hasMediaCapture || !hasGetUserMedia || fileOnly">
           <v-btn @click="startMediaCapture" large :disabled="disabled || readonly">
-            <v-icon>photo_camera</v-icon> Take Photo
+            <v-icon>photo_camera</v-icon> {{ buttonText }}
             <form ref="fileForm">
               <input ref="fileInput" type="file" accept="image/*" capture="camera" v-on:change="captureImageFile" style="display:none"/>
             </form>
@@ -73,6 +73,10 @@ export default {
     requiredMessage: {
       type: String,
       default: 'This field is required'
+    },
+    buttonText: {
+      type: String,
+      default: "Take Photo"
     }
   },
   methods: {
