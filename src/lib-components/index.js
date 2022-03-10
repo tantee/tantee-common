@@ -17,6 +17,7 @@ export { default as VFormDialog } from './form/vFormDialog.vue';
 export { default as VFormPad } from './form/vFormPad.vue';
 export { default as VHiddenField } from './form/vHiddenField.vue';
 export { default as VImageCapture } from './form/vImageCapture.vue';
+export { default as VImageField } from './form/vImageField.vue';
 export { default as VIteratorField } from './form/vIteratorField.vue';
 export { default as VMasterField } from './form/vMasterField.vue';
 export { default as VScanPad } from './form/vScanPad.vue';
