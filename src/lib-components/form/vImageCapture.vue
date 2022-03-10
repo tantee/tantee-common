@@ -154,10 +154,13 @@ export default {
     this.stopCamera()
   },
   watch: {
-    value: function (newValue) {
-      this.imageData = newValue
-      this.isCaptured = true
-      this.stopCamera()
+    value: {
+      handler(newValue) {
+        this.imageData = newValue
+        this.isCaptured = true
+        this.stopCamera()
+      },
+      immediate: true
     }
   }
 }
