@@ -12,11 +12,11 @@
         </template>
         <template v-else>
           <canvas ref="captureCanvas" style="display:none"></canvas>
-          <video autoplay ref="videoScreen" width="100%" style="maxWidth:1024px"></video>
+          <video autoplay ref="videoScreen" width="100%" :style="'maxWidth:'+maxWidth"></video>
         </template>
       </template>
       <template v-else>
-        <v-img :src="imageSrc" max-width="1024" contain></v-img><br />
+        <v-img :src="imageSrc" max-height="maxHeight" max-width="maxWidth" contain></v-img><br />
       </template>
     </v-card-text>
     <v-card-text v-if="showRequiredMessage" class="text-center">
@@ -77,7 +77,15 @@ export default {
     buttonText: {
       type: String,
       default: "Take Photo"
-    }
+    },
+    maxHeight: {
+      type: [String,Number],
+      default: undefined,
+    },
+    maxWidth: {
+      type: [String,Number],
+      default: 1024,
+    },
   },
   methods: {
     validate() {
