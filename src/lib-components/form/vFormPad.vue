@@ -135,7 +135,7 @@ export default {
 
       try {
         let tmpTemplate = this.template.toString()
-        tmpTemplate = tmpTemplate.replace(/(<(?:v-text-field|v-radio-group|v-checkbox|v-textarea|v-date-field|v-time-field|v-date-time-field))((?:(?!readonly)[^>\"]|\"[^\"]*\")*>)/g,'$1 :readonly="disabled"$2')
+        tmpTemplate = tmpTemplate.replace(/(<(?:v-[^>\s]+))((?:(?!readonly)[^>\"]|\"[^\"]*\")*>)/g,'$1 :readonly="disabled"$2')
 
         Vue.compile(`<v-form ref="form" v-model="isValid" :readonly="disabled">${tmpTemplate}</v-form>`)
 
