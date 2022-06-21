@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import {isObject} from 'lodash'
+import {isObject,isInteger} from 'lodash'
 
 export default {
   data: ()=>({
@@ -25,7 +25,7 @@ export default {
   }),
   props: {
     value: {
-      type: [Object,Array],
+      type: [Object,Array,Number],
       default: ()=>({})
     },
     readonly: {
@@ -64,8 +64,17 @@ export default {
     isAssetData() {
       if (isObject(this.imageData) && this.imageData.id) {
         return true
+      } else if (isInteger(this.imageData)) {
+        return true
       } else {
         return false
+      }
+    },
+    viewerImageData() {
+      if (isInteger(this.imageData)) {
+        return {id: this.imageData}
+      } else {
+        return this.imageData
       }
     }
   },
