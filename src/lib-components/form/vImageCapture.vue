@@ -16,7 +16,7 @@
         </template>
       </template>
       <template v-else>
-        <v-img :src="imageSrc" max-height="maxHeight" max-width="maxWidth" contain></v-img><br />
+        <v-img :src="imageSrc" :max-height="maxHeight" :max-width="maxWidth" contain></v-img><br />
       </template>
     </v-card-text>
     <v-card-text v-if="showRequiredMessage" class="text-center">
