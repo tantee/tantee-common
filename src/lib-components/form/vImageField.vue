@@ -6,7 +6,7 @@
   </v-form-pad>
   <v-card v-else>
     <v-card-text align="center">
-      <v-asset-viewer :asset="this.imageData" :max-width="maxWidth" :max-height="maxHeight"></v-asset-viewer>
+      <v-asset-viewer :asset="viewerImageData" :max-width="maxWidth" :max-height="maxHeight"></v-asset-viewer>
     </v-card-text>
     <v-card-actions v-if="!readonly">
       <v-spacer></v-spacer>
