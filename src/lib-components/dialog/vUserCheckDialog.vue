@@ -1,7 +1,7 @@
 <template>
   <v-dialog value="true" max-width="600" @keydown.esc="choose(false)" persistent>
     <v-card tile>
-      <v-toolbar flat color="primary">
+      <v-toolbar flat :color="color" >
         <v-icon class="white--text">mdi-login</v-icon>&nbsp;
         <v-toolbar-title class="white--text">Login Form</v-toolbar-title>
       </v-toolbar>
@@ -33,7 +33,11 @@ export default {
     verifyCurrentUser: {
       type: Boolean,
       default: false
-    }
+    },
+    color: {
+      type: String,
+      default: 'primary'
+    },
   },
   methods: {
     login() {
